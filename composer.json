@@ -15,7 +15,7 @@
 	"description" : "rules  for  phpcodesniffer",
 	"require" : {
 		"squizlabs/php_codesniffer" : "2.3.4",
-		"php" : ">=7.1"
+		"php" : ">=7.0"
 	},
 	"authors" : [{
 			"name" : "Moosh",
