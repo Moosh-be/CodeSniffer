@@ -1,0 +1,26 @@
+{
+	"keywords" : [
+		"QA",
+		"Ticket",
+		"Todo",
+		"Jira",
+		"Github"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Kamelot\\CodeSniffer\\" : "src"
+		}
+	},
+	"name" : "Kamelot/CodeSniffer",
+	"description" : "rules  for  phpcodesniffer",
+	"require" : {
+		"squizlabs/php_codesniffer" : "2.3.4",
+		"php" : ">=7.1"
+	},
+	"authors" : [{
+			"name" : "Moosh",
+			"email" : "christophe@gesche.org",
+			"role" : "Developper"
+		}
+	]
+}
