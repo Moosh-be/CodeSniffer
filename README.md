@@ -8,7 +8,7 @@ Using report:
 
 ```bash
 vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml --extensions=php \
---encoding=utf-8 -n tests/Kamelot/ok/ --report=reports/Kamelot/Summary.php --colors
+--encoding=utf-8 -n tests/Kamelot/ok/ --colors
 ```
 
 Default ussage
