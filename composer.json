@@ -12,7 +12,7 @@
 		}
 	},
 	"name" : "Kamelot/CodeSniffer",
-	"description" : "rules  for  phpcodesniffer",
+	"description" : "Ruleset for phpcodesniffer\n\nC'est mon premier package composer.\nC'est mon premier gitflow.\nC'est mon premier Ruleset.\n\nTout feedback est bien venu",
 	"require" : {
 		"squizlabs/php_codesniffer" : "2.3.4",
 		"php" : ">=7.0"
