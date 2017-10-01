@@ -11,7 +11,7 @@
 			"Kamelot\\CodeSniffer\\" : "src"
 		}
 	},
-	"name" : "Kamelot/CodeSniffer",
+	"name" : "kamelot/code-sniffer",
 	"description" : "Ruleset for phpcodesniffer\n\nC'est mon premier package composer.\nC'est mon premier gitflow.\nC'est mon premier Ruleset.\n\nTout feedback est bien venu",
 	"require" : {
 		"squizlabs/php_codesniffer" : "2.3.4",
