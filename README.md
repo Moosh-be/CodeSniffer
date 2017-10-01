@@ -45,7 +45,7 @@ Installation in a Composer project (method 1)
 
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.2 || ^3.0.2",
-        "wimg/php-compatibility": "*"
+        "moosh-be/CodeSniffer": "*"
     },
     "prefer-stable" : true
 
