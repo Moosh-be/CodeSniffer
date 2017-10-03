@@ -8,7 +8,7 @@ Using report:
 
 ```bash
 vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml --extensions=php \
---encoding=utf-8 -n tests/Kamelot/ok/ --report=reports/Kamelot/Summary.php --colors
+--encoding=utf-8 -n tests/Kamelot/ok/ --colors
 ```
 
 Default ussage
@@ -34,3 +34,19 @@ Checking if everything is OK
 vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml \
 --extensions=php --encoding=utf-8 -n tests/Kamelot/ok
 ```
+
+
+## Installation
+
+Installation in a Composer project (method 1)
+
+
+    Add the following lines to the require-dev section of your composer.json file.
+
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.2 || ^3.0.2",
+        "moosh-be/CodeSniffer": "*"
+    },
+    "prefer-stable" : true
+
+

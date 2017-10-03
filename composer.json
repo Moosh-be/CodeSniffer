@@ -11,11 +11,13 @@
 			"Kamelot\\CodeSniffer\\" : "src"
 		}
 	},
-	"name" : "Kamelot/CodeSniffer",
-	"description" : "rules  for  phpcodesniffer",
+	"name" : "kamelot/code-sniffer",
+	"description" : "Ruleset for phpcodesniffer\n\nC'est mon premier package composer.\nC'est mon premier gitflow.\nC'est mon premier Ruleset.\n\nTout feedback est bien venu",
+	"license": "LGPL-3.0",
+
 	"require" : {
 		"squizlabs/php_codesniffer" : "2.3.4",
-		"php" : ">=7.1"
+		"php" : ">=7.0"
 	},
 	"authors" : [{
 			"name" : "Moosh",
