@@ -73,14 +73,8 @@ class TodoSniff implements Sniff
         $content = $tokens[$stackPtr]['content'];
         $matches = array();
         // @Todo pouvoir personaliser la regexp
-        preg_match('/(?:\A|[^\p{L}]+)todo([^\p{L}]+(.*)|\Z)/ui', $content, $matches);
-        if (empty($matches) === false) {
-
-            preg_match('/WWW([a-z])*-([0-9])*/ui', $matches[1], $jiramatches);
-            if (empty($jiramatches) === false) {
-
-            } else {
-
+        if (preg_match('/(?:\A|[^\p{L}]+)todo([^\p{L}]+(.*)|\Z)/ui', $content, $matches)) {
+            if (! preg_match('/WWW([a-z])*-([0-9])*/ui', $matches[1], $jiramatches)) {
             // Clear whitespace and some common characters not required at
             // the end of a to-do message to make the warning more informative.
 
