@@ -12,6 +12,12 @@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
+namespace Standards\Sniffs\Comments;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
+
 /**
  * Based on Generic_Sniffs_Commenting_TodoSniff.
  *
@@ -26,9 +32,7 @@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
-use PHP_CodeSniffer\Sniffs\Sniff;
-
-class Kamelot_Sniffs_Commenting_TodoSniff implements Sniff
+class TodoSniff implements Sniff
 {
 
     /**
@@ -49,7 +53,7 @@ class Kamelot_Sniffs_Commenting_TodoSniff implements Sniff
      */
     public function register()
     {
-        return PHP_CodeSniffer_Tokens::$commentTokens;
+        return Tokens::$commentTokens;
 
     }//end register()
 
@@ -57,13 +61,12 @@ class Kamelot_Sniffs_Commenting_TodoSniff implements Sniff
     /**
      * Processes this sniff, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
-     *                                        in the stack passed in $tokens.
+     * @param File  $phpcsFile The file being scanned.
+     * @param int   $stackPtr  The position of the current token in the stack passed in $tokens.
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
