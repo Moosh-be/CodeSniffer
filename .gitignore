@@ -1,2 +1,6 @@
+# IDE relatives
+/.idea/
+
+# Composer
 /vendor/
 composer.lock
