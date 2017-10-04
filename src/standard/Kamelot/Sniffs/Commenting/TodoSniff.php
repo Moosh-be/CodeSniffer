@@ -64,19 +64,52 @@ class TodoSniff implements Sniff
      * @param File  $phpcsFile The file being scanned.
      * @param int   $stackPtr  The position of the current token in the stack passed in $tokens.
      *
-     * @return void
+     * @return int
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
-        $content = $tokens[$stackPtr]['content'];
-        $matches = array();
-        // @Todo pouvoir personaliser la regexp
-        if (preg_match('/(?:\A|[^\p{L}]+)todo([^\p{L}]+(.*)|\Z)/ui', $content, $matches)) {
+        $foundComments = [];
+        $stackEnable = false;
+        $blockCommentStack = [];
+        foreach($tokens as $token) {
+            //search inline comment
+            if ($token['code'] === T_COMMENT && !$stackEnable) {
+                $foundComments[] = $token['content'];
+            }
+
+
+            //search block comments
+            if ($token['code'] === T_DOC_COMMENT_OPEN_TAG) {
+                $stackEnable = true;
+                continue;
+            }
+
+            if ($token['code'] === T_DOC_COMMENT_CLOSE_TAG) {
+                $foundComments[] = join('', $blockCommentStack);
+                $blockCommentStack = [];
+                $stackEnable = false;
+            }
+
+            if ($stackEnable) {
+                $blockCommentStack[] = $token['content'];
+            }
+        }
+
+        foreach ($foundComments as $foundComment) {
+            $this->handleComment($phpcsFile, $foundComment);
+        }
+
+        return count($tokens) + 1;
+    }
+
+    private function handleComment(File $phpcsFile, $foundComment)
+    {
+        if (preg_match('/(?:\A|[^\p{L}]+)todo([^\p{L}]+(.*)|\Z)/ui', $foundComment, $matches)) {
             if (! preg_match('/WWW([a-z])*-([0-9])*/ui', $matches[1], $jiramatches)) {
-            // Clear whitespace and some common characters not required at
-            // the end of a to-do message to make the warning more informative.
+                // Clear whitespace and some common characters not required at
+                // the end of a to-do message to make the warning more informative.
 
                 $type        = 'CommentFound';
                 $todoMessage = trim($matches[1]);
@@ -88,9 +121,10 @@ class TodoSniff implements Sniff
                     $error .= ' "%s"';
                 }
 
-                $phpcsFile->addWarning($error, $stackPtr, $type, $data);
+                //the stack ptr is invalid so hardcoded to 0 for the moment
+                $phpcsFile->addWarning($error, 0, $type, $data);
             }
         }
 
-    }//end process()
+    }
 }//end class
