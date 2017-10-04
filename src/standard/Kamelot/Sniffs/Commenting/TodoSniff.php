@@ -74,37 +74,41 @@ class TodoSniff implements Sniff
         $stackEnable = false;
         $blockCommentStack = [];
         foreach($tokens as $token) {
+            $code = $token['code'];
+            $line = $token['line'];
+            $content = $token['content'];
+
             //search inline comment
-            if ($token['code'] === T_COMMENT && !$stackEnable) {
-                $foundComments[] = $token['content'];
+            if ($code === T_COMMENT && !$stackEnable) {
+                $foundComments[$line] = $content;
             }
 
 
             //search block comments
-            if ($token['code'] === T_DOC_COMMENT_OPEN_TAG) {
+            if ($code === T_DOC_COMMENT_OPEN_TAG) {
                 $stackEnable = true;
                 continue;
             }
 
-            if ($token['code'] === T_DOC_COMMENT_CLOSE_TAG) {
-                $foundComments[] = join('', $blockCommentStack);
+            if ($code === T_DOC_COMMENT_CLOSE_TAG) {
+                $foundComments[$line] = join('', $blockCommentStack);
                 $blockCommentStack = [];
                 $stackEnable = false;
             }
 
             if ($stackEnable) {
-                $blockCommentStack[] = $token['content'];
+                $blockCommentStack[] = $content;
             }
         }
 
-        foreach ($foundComments as $foundComment) {
-            $this->handleComment($phpcsFile, $foundComment);
+        foreach ($foundComments as $lineNumber => $foundComment) {
+            $this->handleComment($phpcsFile, $lineNumber - 1, $foundComment);
         }
 
         return count($tokens) + 1;
     }
 
-    private function handleComment(File $phpcsFile, $foundComment)
+    private function handleComment(File $phpcsFile, $lineNumber, $foundComment)
     {
         if (preg_match('/(?:\A|[^\p{L}]+)todo([^\p{L}]+(.*)|\Z)/ui', $foundComment, $matches)) {
             if (! preg_match('/WWW([a-z])*-([0-9])*/ui', $matches[1], $jiramatches)) {
@@ -121,8 +125,7 @@ class TodoSniff implements Sniff
                     $error .= ' "%s"';
                 }
 
-                //the stack ptr is invalid so hardcoded to 0 for the moment
-                $phpcsFile->addWarning($error, 0, $type, $data);
+                $phpcsFile->addWarning($error, $lineNumber, $type, $data);
             }
         }
 
