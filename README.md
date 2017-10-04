@@ -19,7 +19,7 @@ vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml --extensions=php \
 
 ## Testing code
 
-Run commands
+### Run commands
 
 Checking if everything is wrong :-)
 
@@ -34,6 +34,15 @@ Checking if everything is OK
 vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml \
 --extensions=php --encoding=utf-8 -n tests/Kamelot/ok
 ```
+
+### PhpUnit
+You can do that through phpunit now
+
+```bash
+vendor/bin/phpunit
+```
+
+
 
 
 ## Installation
