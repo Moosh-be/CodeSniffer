@@ -12,9 +12,8 @@
 		}
 	},
 	"name" : "kamelot/code-sniffer",
-	"description" : "Ruleset for phpcodesniffer\n\nC'est mon premier package composer.\nC'est mon premier gitflow.\nC'est mon premier Ruleset.\n\nTout feedback est bien venu",
-	"license": "LGPL-3.0",
-
+	"description" : "Ruleset for phpcodesniffer. C'est mon premier package composer. C'est mon premier gitflow. C'est mon premier Ruleset. Tout feedback est bien venu",
+	"license" : "LGPL-3.0",
 	"require" : {
 		"squizlabs/php_codesniffer" : "3.1.0",
 		"php" : ">=7.0"
