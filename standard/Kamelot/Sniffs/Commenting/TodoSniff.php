@@ -25,7 +25,10 @@
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Kamelot_Sniffs_Commenting_TodoSniff implements PHP_CodeSniffer_Sniff
+
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class Kamelot_Sniffs_Commenting_TodoSniff implements Sniff
 {
 
     /**
