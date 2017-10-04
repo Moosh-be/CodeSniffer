@@ -11,7 +11,7 @@ vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml --extensions=php \
 --encoding=utf-8 -n tests/Kamelot/ok/ --colors
 ```
 
-Default ussage
+Default usage
 ```bash
 vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml --extensions=php \
 --encoding=utf-8 -n src --colors
@@ -38,15 +38,6 @@ vendor/bin/phpcs --standard=standard/Kamelot/ruleset.xml \
 
 ## Installation
 
-Installation in a Composer project (method 1)
+Installation through Composer
 
-
-    Add the following lines to the require-dev section of your composer.json file.
-
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^2.2 || ^3.0.2",
-        "moosh-be/CodeSniffer": "*"
-    },
-    "prefer-stable" : true
-
-
+    composer require kamelot/CodeSniffer   
