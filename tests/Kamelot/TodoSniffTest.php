@@ -53,9 +53,15 @@ class TodoSniffTest extends TestCase
         $this->phpcsFile->process();
 
         self::assertEquals(7, $this->phpcsFile->getWarningCount());
-        self::assertArrayHasKey(1, $this->phpcsFile->getWarnings());
-        //the document has in fact 9 errors. The issue it the second to do in a bloc comment
-        //The numbering of lines is invalid also
+        //the document has in fact 9 errors. The algo must be improved
+
+        self::assertArrayHasKey(3, $this->phpcsFile->getWarnings());
+        self::assertArrayHasKey(4, $this->phpcsFile->getWarnings());
+        self::assertArrayHasKey(7, $this->phpcsFile->getWarnings());
+        self::assertArrayHasKey(8, $this->phpcsFile->getWarnings());
+        self::assertArrayHasKey(11, $this->phpcsFile->getWarnings());
+        // only 5 keys (lines number) are found
+
     }
 
     public function testValids()
