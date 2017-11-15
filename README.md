@@ -43,9 +43,6 @@ You can do that through phpunit now
 vendor/bin/phpunit
 ```
 
-
-
-
 ## Installation
 
 Installation through Composer
