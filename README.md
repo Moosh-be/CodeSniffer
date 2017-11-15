@@ -2,6 +2,8 @@
 
 Some custom PHP codesniffer rules
 
+https://packagist.org/packages/kamelot/code-sniffer
+
 ## Examples
 
 Using report:
