@@ -4,6 +4,12 @@ Some custom PHP codesniffer rules
 
 https://packagist.org/packages/kamelot/code-sniffer
 
+
+# Rule List
+
+@todo would include a ticket/issue id
+
+
 ## Examples
 
 Using report:
