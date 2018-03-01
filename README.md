@@ -3,6 +3,8 @@
 Some custom PHP codesniffer rules
 
 https://packagist.org/packages/kamelot/code-sniffer
+[![Dependency Status](https://www.versioneye.com/user/projects/5a9821670fb24f2cfe29cc2d/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5a9821670fb24f2cfe29cc2d)
+
 
 
 # Rule List
