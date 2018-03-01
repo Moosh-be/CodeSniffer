@@ -4,7 +4,11 @@ Some custom PHP codesniffer rules
 
 https://packagist.org/packages/kamelot/code-sniffer
 [![Dependency Status](https://www.versioneye.com/user/projects/5a9821670fb24f2cfe29cc2d/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5a9821670fb24f2cfe29cc2d)
-
+[![Latest Stable Version](https://poser.pugx.org/kamelot/code-sniffer/v/stable)](https://packagist.org/packages/kamelot/code-sniffer)
+[![Total Downloads](https://poser.pugx.org/kamelot/code-sniffer/downloads)](https://packagist.org/packages/kamelot/code-sniffer)
+[![Latest Unstable Version](https://poser.pugx.org/kamelot/code-sniffer/v/unstable)](https://packagist.org/packages/kamelot/code-sniffer)
+[![License](https://poser.pugx.org/kamelot/code-sniffer/license)](https://packagist.org/packages/kamelot/code-sniffer)
+[![composer.lock](https://poser.pugx.org/kamelot/code-sniffer/composerlock)](https://packagist.org/packages/kamelot/code-sniffer)
 
 
 # Rule List
